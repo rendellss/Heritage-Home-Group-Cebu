@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heritage Home Group</title>
+  <link rel="icon" type="image/png" href="images/HHG Logo.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR WITH MEGA DROPDOWN -->
+  <nav class="navbar">
+    <h1 style="font-family: 'Libre Baskerville', serif; font-weight: 400;">
+      <img src="images/HHG Logo.png" alt="Heritage Home Group logo" />
+      Heritage Home Group
+    </h1>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="craftsmanship.html">Craftsmanship</a></li>
+
+      <!-- PRODUCTS WITH DROPDOWN -->
+      <li class="nav-item-dropdown">
+        <a href="products.html" class="dropdown-toggle" id="productsDropdownBtn">Products <span class="dropdown-arrow">▾</span></a>
+        <div class="mega-dropdown simple-dropdown" id="productsMegaDropdown">
+          <div class="mega-tabs-header">
+            <a href="products.html" class="mega-tab active">PRODUCTS</a>
+          </div>
+          <div class="mega-dropdown-body">
+            <div class="mega-left-col">
+              <a href="products.html" class="mega-left-link">ALL PRODUCTS</a>
+            </div>
+            <div class="mega-divider"></div>
+            <div class="mega-simple-categories mega-cats-expanded">
+              <a href="#" class="mega-cat-item">Chairs</a>
+              <a href="#" class="mega-cat-item">Tables</a>
+              <a href="#" class="mega-cat-item">Lightings</a>
+              <a href="#" class="mega-cat-item">Decorative Hardware</a>
+              <a href="#" class="mega-cat-item">Accessories</a>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li><a href="features.html">Features</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <!-- LEFT -->
+    <div class="hero-left">
+      <div class="overlay fade-scroll fade-left">
+        <h2 style="font-family: 'Libre Baskerville', serif; font-weight: 400;">WELCOME TO</h2>
+        <h1 style="font-family: 'Catchy Mager', serif; font-size: 64px; font-weight: normal;"><span
+            class="vault-line">The Vault of
+            Living</span><br>History</h1>
+        <p style="font-family: 'Catchy Mager', serif; font-size: 35px;">a home of treasures</p>
+
+        <div class="buttons">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfufqfSQ6mooIYYezE8b4IYlAZHbgLQedjskwim0REkfBtYwA/viewform" target="_blank" rel="noopener noreferrer" class="btn">Request for Quote</a>
+          <a href="about.html" class="btn">Discover</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="hero-right">
+      <div class="right-image"></div>
+      <div class="hero-right-text fade-scroll fade-right">
+        <h3 style="font-family: 'Libre Baskerville', serif; font-weight: 400;">HHG CEBU INC.</h3>
+        <p>
+          Your Trusted OEM &amp; ODM Manufacturing Partner.
+          We help businesses create and manufacture custom products.
+          Our experienced design team works with you from idea to production,
+          providing regular updates and ensuring your product meets your needs.
+          Whether you need a complete custom product, design optimization, or reliable
+          manufacturing support, our experienced team is ready to help bring your
+          vision to life.
+        </p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- FADE IN / FADE OUT ON SCROLL SCRIPT -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const scrollElements = document.querySelectorAll('.fade-scroll');
+      if (!scrollElements.length) return;
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            } else {
+              entry.target.classList.remove('visible');
+            }
+          });
+        },
+        {
+          threshold: 0.12,
+          rootMargin: '0px 0px -30px 0px'
+        }
+      );
+
+      scrollElements.forEach((el) => {
+        observer.observe(el);
+      });
+    });
+  </script>
+
+</body>
+
+</html>

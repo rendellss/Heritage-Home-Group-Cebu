@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rebound Out · Right Panel</title>
+    <style>
+        /* --- reset & prevent horizontal scroll --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            overflow-x: hidden;
+            /* hides the scrollbar that would appear when the panel overshoots off‑screen right */
+            background: #0b0b16;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        /* --- the panel (right side, 40% width) --- */
+        .shape {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100vh;
+
+            /* rich gradient + soft glow */
+            background: linear-gradient(145deg, #4f46e5, #7c3aed, #a855f7);
+            box-shadow: -8px 0 40px rgba(79, 70, 229, 0.4);
+
+            /* start off‑screen to the LEFT */
+            transform: translateX(-120%);
+
+            /* center content */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            padding: 2rem;
+            text-align: center;
+
+            /* smooth the animation */
+            will-change: transform;
+
+            /* --- REBOUND OUT ANIMATION ---
+                   - slides in from the left
+                   - overshoots to the RIGHT (extends off‑screen)
+                   - rebounds (pulls back slightly, but still stays at/over the right edge)
+                   - settles exactly at the right edge
+                */
+            animation: reboundOut 1.6s cubic-bezier(0.22, 1.5, 0.5, 1) forwards;
+        }
+
+        @keyframes reboundOut {
+            0% {
+                transform: translateX(-120%);
+                /* fully hidden left */
+            }
+
+            65% {
+                transform: translateX(8%);
+                /* overshoot RIGHT – panel goes past the viewport edge, so NO gap on the right */
+            }
+
+            85% {
+                transform: translateX(0.5%);
+                /* rebound – still slightly off‑screen right, still NO gap */
+            }
+
+            100% {
+                transform: translateX(0%);
+                /* settle exactly at the edge */
+            }
+        }
+
+        /* --- decorative content inside the panel --- */
+        .shape h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: rgba(255, 255, 255, 0.12);
+            padding: 0.2rem 1.4rem;
+            border-radius: 1.2rem;
+            backdrop-filter: blur(4px);
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+        }
+
+        .shape p {
+            margin-top: 1rem;
+            font-size: 1.1rem;
+            opacity: 0.85;
+            max-width: 20rem;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .shape .badge {
+            margin-top: 1.8rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.4rem 1.4rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            letter-spacing: 0.4px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(2px);
+        }
+
+        /* --- left side hint (just for context) --- */
+        .hint {
+            position: fixed;
+            left: 2.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.12);
+            font-size: 0.9rem;
+            max-width: 12rem;
+            line-height: 1.6;
+            pointer-events: none;
+            font-weight: 300;
+            letter-spacing: 0.3px;
+        }
+
+        .hint strong {
+            color: rgba(255, 255, 255, 0.3);
+            font-weight: 500;
+        }
+
+        /* --- responsive adjustments --- */
+        @media (max-width: 700px) {
+            .shape {
+                width: 70%;
+            }
+
+            .shape h1 {
+                font-size: 2.8rem;
+            }
+
+            .hint {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== THE PANEL (right side) ===== -->
+    <div class="shape">
+        <h1>40%</h1>
+        <p>Slides in from the left,<br />overshoots right, rebounds,<br />and settles — no gap on the right.</p>
+        <span class="badge">⚡ rebound out</span>
+    </div>
+
+    <!-- ===== left side hint ===== -->
+    <div class="hint">
+        <strong>←</strong> the panel takes up <br /><strong>40%</strong> of the screen <br />on the right side.
+    </div>
+
+</body>
+
+</html>
