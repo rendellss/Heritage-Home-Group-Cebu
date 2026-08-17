@@ -96,13 +96,40 @@ body {
   overflow-x: hidden;
 }
 
-.scroll-filler {
-  width: 100%;
-  height: 1px;
-  margin-top: -1px;
-  overflow: hidden;
-  visibility: hidden;
-  pointer-events: none;
+/* Force native vertical scrollbar on desktop while locking visible hero in place */
+@media (min-width: 901px) {
+  body.index-page {
+    min-height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
+  body.index-page .hero {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  body.index-page .scroll-filler {
+    display: block;
+    width: 100%;
+    height: calc(100vh + 2px);
+    overflow: hidden;
+    visibility: hidden;
+    pointer-events: none;
+    opacity: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  body.index-page .scroll-filler {
+    display: none;
+  }
 }
 
 /* NAVBAR */
@@ -1448,47 +1475,60 @@ body.craftsmanship-page {
   object-fit: contain;
 }
 
-/* == LADYBUG layout: absolute positioned floating detail images == */
+/* == LADYBUG layout: 2-column flex (left: stacked thumbnails, right: main ladybug) == */
 .mfg-lb-layout {
-  position: relative;
+  display: flex;
+  flex-direction: row;
   width: 100%;
   height: 100%;
   min-height: 380px;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 24px 20px 40px;
+  box-sizing: border-box;
+  gap: 20px;
 }
 
-/* Elytra thumbnail — upper-left area */
+.mfg-lb-thumbs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-shrink: 0;
+}
+
 .mfg-lb-elytra {
-  position: absolute;
-  top: 40px;
-  left: 40px;
   height: 120px;
   width: auto;
   display: block;
-  z-index: 10;
+  object-fit: contain;
 }
 
-/* Head thumbnail — lower-left area */
 .mfg-lb-head {
-  position: absolute;
-  top: 200px;
-  left: 40px;
   height: 110px;
   width: auto;
   display: block;
-  z-index: 10;
+  object-fit: contain;
+}
+
+.mfg-lb-main-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  min-width: 0;
 }
 
 .mfg-lb-main {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-28%);
-  width: 65%;
+  max-width: 100%;
+  max-height: 340px;
+  width: auto;
   height: auto;
   object-fit: contain;
   display: block;
   mix-blend-mode: multiply;
-  z-index: 1;
 }
 
 /* == SAND CASTING / FABRICATION / WOODWORKING layout == */
@@ -3621,29 +3661,49 @@ iframe {
     padding: 16px;
   }
 
+  .mfg-lb-layout {
+    min-height: 0;
+    padding: 12px 8px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .mfg-lb-thumbs {
+    gap: 10px;
+    padding: 0;
+    flex-shrink: 0;
+  }
+
   .mfg-lb-elytra {
-    left: 16px;
-    top: 20px;
-    height: 90px;
+    height: 75px;
+    width: auto;
+    max-width: 95px;
+    object-fit: contain;
   }
 
   .mfg-lb-head {
-    left: 16px;
-    top: 130px;
-    height: 90px;
+    height: 75px;
+    width: auto;
+    max-width: 95px;
+    object-fit: contain;
+  }
+
+  .mfg-lb-main-wrap {
+    flex: 1;
+    padding: 2px;
+    min-width: 0;
   }
 
   .mfg-lb-main {
-    position: static;
-    transform: none;
-    width: 100%;
-    max-width: 360px;
+    max-width: 100%;
+    max-height: 175px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
     margin: 0 auto;
-  }
-
-  .mfg-lb-layout {
-    min-height: 0;
-    padding: 16px;
   }
 
   .mfg-goat-main img {
@@ -4022,6 +4082,29 @@ iframe {
     max-width: 300px;
     height: 110px;
     border: 2.5px solid #e2d2ba;
+  }
+
+  .mfg-lb-layout {
+    padding: 8px 4px;
+    gap: 8px;
+  }
+
+  .mfg-lb-thumbs {
+    gap: 8px;
+  }
+
+  .mfg-lb-elytra {
+    height: 65px;
+    max-width: 80px;
+  }
+
+  .mfg-lb-head {
+    height: 65px;
+    max-width: 80px;
+  }
+
+  .mfg-lb-main {
+    max-height: 150px;
   }
 
   .shell-swatches-arrow {
