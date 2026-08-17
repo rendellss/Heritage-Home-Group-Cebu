@@ -870,9 +870,32 @@ body.about-page {
   padding: 8px 16px;
   border-radius: 4px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.22);
-  transition: all 0.25s ease;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
   z-index: 1100;
   white-space: nowrap;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Smoothly hide the quote button when the Products dropdown is open */
+.nav-item-dropdown:hover ~ * .hero-white-btn,
+.nav-item-dropdown:hover .hero-white-btn,
+.nav-item-dropdown.open ~ * .hero-white-btn,
+.nav-item-dropdown.open .hero-white-btn {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Since .hero-white-btn is fixed (not a sibling of .nav-item-dropdown),
+   we use a body class toggled by JS for reliable cross-browser hiding */
+body.dropdown-open .hero-white-btn {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .hero-white-btn:hover {
@@ -3378,9 +3401,19 @@ iframe {
     gap: 10px;
   }
 
-  .navbar h1 {
+  .hero-white-btn {
+    top: 10px;
+    right: 12px;
+    font-size: 11.5px;
+    padding: 6px 12px;
+    letter-spacing: 0.2px;
+    z-index: 1200;
+  }
+
+  .navbar h1,
+  .navbar .nav-brand {
     order: 2;
-    max-width: calc(100% - 54px);
+    max-width: calc(100% - 170px);
     font-size: 12px;
     letter-spacing: 0.7px;
     white-space: nowrap;
@@ -3897,7 +3930,16 @@ iframe {
     padding: 0 8px;
   }
 
-  .navbar h1 {
+  .hero-white-btn {
+    top: 11px;
+    right: 8px;
+    font-size: 10.5px;
+    padding: 5px 9px;
+  }
+
+  .navbar h1,
+  .navbar .nav-brand {
+    max-width: calc(100% - 150px);
     font-size: 10px;
     letter-spacing: 0.2px;
   }

@@ -270,6 +270,17 @@
         });
       }
 
+      // Smoothly hide the "Request a Quote" button when the Products dropdown is open
+      const productsDropdownItem = document.querySelector('.nav-item-dropdown');
+      if (productsDropdownItem) {
+        productsDropdownItem.addEventListener('mouseenter', () => {
+          document.body.classList.add('dropdown-open');
+        });
+        productsDropdownItem.addEventListener('mouseleave', () => {
+          document.body.classList.remove('dropdown-open');
+        });
+      }
+
       // Fade in elements
       const scrollElements = document.querySelectorAll('.fade-scroll');
       scrollElements.forEach((el) => {
