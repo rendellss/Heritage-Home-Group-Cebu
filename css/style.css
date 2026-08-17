@@ -1456,35 +1456,34 @@ body.craftsmanship-page {
   min-height: 380px;
 }
 
-/* Elytra thumbnail — upper-right area, moved to the right more */
+/* Elytra thumbnail — upper-left area */
 .mfg-lb-elytra {
   position: absolute;
   top: 40px;
-  right: 60px;
+  left: 40px;
   height: 120px;
   width: auto;
   display: block;
   z-index: 10;
 }
 
-/* Head thumbnail — middle-left area, moved to the right more */
+/* Head thumbnail — lower-left area */
 .mfg-lb-head {
   position: absolute;
-  top: 150px;
-  left: 120px;
+  top: 200px;
+  left: 40px;
   height: 110px;
   width: auto;
   display: block;
   z-index: 10;
 }
 
-/* Large ladybug — bottom center */
 .mfg-lb-main {
   position: absolute;
   bottom: 10px;
   left: 50%;
-  transform: translateX(-40%);
-  width: 72%;
+  transform: translateX(-28%);
+  width: 65%;
   height: auto;
   object-fit: contain;
   display: block;
@@ -3623,7 +3622,7 @@ iframe {
   }
 
   .mfg-lb-elytra {
-    right: 16px;
+    left: 16px;
     top: 20px;
     height: 90px;
   }
@@ -3686,7 +3685,7 @@ iframe {
     border: 1.5px solid #c8b89a;
     background: #faf8f5;
     padding: 6px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
   }
 
   .mfg-photos-row,
@@ -4012,7 +4011,7 @@ iframe {
     border: 1.5px solid #c8b89a;
     background: #faf8f5;
     padding: 5px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
   }
 
   .shell-swatches-row .veener-wide,
