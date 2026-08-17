@@ -5,30 +5,43 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Products - Heritage Home Group</title>
+  <meta name="description"
+    content="Browse the full Heritage Home Group product collection — chairs, tables, lightings, decorative hardware, and accessories crafted with timeless artisanship.">
   <link rel="icon" type="image/png" href="images/HHG Logo.png">
   <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body class="products-page">
+
+  <!-- Floating Request a Quote button (fixed top-right) -->
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfufqfSQ6mooIYYezE8b4IYlAZHbgLQedjskwim0REkfBtYwA/viewform"
+     target="_blank" rel="noopener noreferrer" class="hero-white-btn">Request a Quote</a>
 
   <!-- NAVBAR WITH MEGA DROPDOWN -->
   <nav class="navbar">
     <h1 style="font-family: 'Libre Baskerville', serif; font-weight: 400;">
-      <a href="index.html" style="color: inherit; text-decoration: none; display: flex; align-items: center; gap: 10px;">
+      <a href="index.html"
+        style="color: inherit; text-decoration: none; display: flex; align-items: center; gap: 10px;">
         <img src="images/HHG Logo.png" alt="Heritage Home Group logo" />
         Heritage Home Group
       </a>
     </h1>
 
-    <ul class="nav-links">
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primaryNav">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-links" id="primaryNav">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About Us</a></li>
       <li><a href="craftsmanship.html">Craftsmanship</a></li>
-      
+
       <!-- PRODUCTS WITH DROPDOWN -->
       <li class="nav-item-dropdown">
-        <a href="products.html" class="active dropdown-toggle" id="productsDropdownBtn">Products <span class="dropdown-arrow">▾</span></a>
-        
+        <a href="products.html" class="active dropdown-toggle" id="productsDropdownBtn">Products <span
+            class="dropdown-arrow">▾</span></a>
+
         <!-- SIMPLE PRODUCTS DROPDOWN MENU -->
         <div class="mega-dropdown simple-dropdown" id="productsMegaDropdown">
           <!-- Top Tab Header -->
@@ -46,13 +59,13 @@
             <!-- Vertical Separator Line -->
             <div class="mega-divider"></div>
 
-            <!-- Main Categories Grid — fills remaining space -->
+            <!-- Main Categories -->
             <div class="mega-simple-categories mega-cats-expanded">
-              <a href="#" class="mega-cat-item">Chairs</a>
-              <a href="#" class="mega-cat-item">Tables</a>
-              <a href="#" class="mega-cat-item">Lightings</a>
-              <a href="#" class="mega-cat-item">Decorative Hardware</a>
-              <a href="#" class="mega-cat-item">Accessories</a>
+              <a href="products.html?category=chairs" class="mega-cat-item">Chairs</a>
+              <a href="products.html?category=tables" class="mega-cat-item">Tables</a>
+              <a href="products.html?category=lightings" class="mega-cat-item">Lightings</a>
+              <a href="products.html?category=decorative-hardware" class="mega-cat-item">Decorative Hardware</a>
+              <a href="products.html?category=accessories" class="mega-cat-item">Accessories</a>
             </div>
           </div>
         </div>
@@ -63,23 +76,823 @@
     </ul>
   </nav>
 
-  <!-- SUB-NAV CATEGORY FILTER BAR -->
-  <div class="products-subnav-bar">
+  <!-- PAGE TITLE + SUB-NAV FILTER BAR -->
+  <div class="products-subnav-bar fade-scroll fade-down">
+    <h1 class="products-page-title">PRODUCTS | ALL</h1>
     <div class="products-subnav-container font-serif">
-      <a href="#" class="subnav-item active">All</a>
+      <a href="#" class="subnav-item active" data-category="all">All</a>
       <span class="subnav-sep">|</span>
-      <a href="#" class="subnav-item">Chairs</a>
+      <a href="#" class="subnav-item" data-category="chairs">Chairs</a>
       <span class="subnav-sep">|</span>
-      <a href="#" class="subnav-item">Tables</a>
+      <a href="#" class="subnav-item" data-category="tables">Tables</a>
       <span class="subnav-sep">|</span>
-      <a href="#" class="subnav-item">Lightings</a>
+      <a href="#" class="subnav-item" data-category="lightings">Lightings</a>
       <span class="subnav-sep">|</span>
-      <a href="#" class="subnav-item">Decorative Hardware</a>
+      <a href="#" class="subnav-item" data-category="decorative-hardware">Decorative Hardware</a>
       <span class="subnav-sep">|</span>
-      <a href="#" class="subnav-item">Accessories</a>
+      <a href="#" class="subnav-item" data-category="accessories">Accessories</a>
     </div>
   </div>
+
+  <!-- CHAIRS FEATURED CALLOUT (shown when Chairs category is active) -->
+  <div class="chairs-callout-banner" id="chairsCalloutBanner" aria-hidden="true">
+    <img src="images\products\Chairs\Left Chair Callout Diagram.png" alt="Chair detail callout diagram — left side"
+      class="chairs-callout-img">
+    <img src="images\products\Chairs\Right Chair Callout Diagram.png" alt="Chair detail callout diagram — right side"
+      class="chairs-callout-img">
+  </div>
+
+  <!-- TABLES FEATURED CALLOUT (shown when Tables category is active) -->
+  <div class="tables-callout-banner" id="tablesCalloutBanner" aria-hidden="true">
+    <img src="images\products\Tables\Top Table Callout Diagram.png" alt="Table detail callout diagram — top" class="tables-callout-img">
+    <img src="images\products\Tables\Bottom Table Callout Diagram.png" alt="Table detail callout diagram — bottom" class="tables-callout-img">
+  </div>
+
+  <!-- LIGHTINGS FEATURED CALLOUT -->
+  <div class="lighting-callout-banner" id="lightingCalloutBanner" aria-hidden="true">
+    <img src="images\products\Lighting\Top Light Callout Diagram.png" alt="Lighting detail callout diagram — top" class="lighting-callout-img">
+    <img src="images\products\Lighting\Bottom Light Callout Diagram.png" alt="Lighting detail callout diagram — bottom" class="lighting-callout-img">
+  </div>
+
+  <!-- DECORATIVE HARDWARE FEATURED CALLOUT -->
+  <div class="decorative-callout-banner" id="decorativeCalloutBanner" aria-hidden="true">
+    <img src="images\products\Decorative Hardware\DecorativeHardware_Callout_Diagram.png" alt="Decorative hardware detail callout diagram" class="decorative-callout-img">
+  </div>
+
+  <!-- ACCESSORIES FEATURED CALLOUT -->
+  <div class="accessories-callout-banner" id="accessoriesCalloutBanner" aria-hidden="true">
+    <img src="images\products\Accessories\Accessories_Callout_Diagram.png" alt="Accessories detail callout diagram - top" class="accessories-callout-img">
+    <img src="images\products\Accessories\Accessories_Callout_Diagram_Bottom.png" alt="Accessories detail callout diagram - bottom" class="accessories-callout-img">
+  </div>
+
+  <!-- PRODUCT GRID: 4 columns × 6 rows = 24 cards -->
+  <section class="products-grid-section" aria-label="Product catalogue">
+    <div class="products-grid">
+
+      <!-- ROW 1 -->
+      <div class="product-card" id="product-1">
+        <img class="product-card-img" src="images\products\All\Furniture1.png" alt="Product placeholder">
+        <div class="product-card-body">
+        </div>
+      </div>
+
+      <div class="product-card" id="product-2">
+        <img class="product-card-img" src="images\products\All\Furniture2.png" alt="Product placeholder">
+        <div class="product-card-body">
+        </div>
+      </div>
+
+      <div class="product-card" id="product-3">
+        <img class="product-card-img" src="images\products\All\Furniture3.png" alt="Product placeholder">
+        <div class="product-card-body">
+        </div>
+      </div>
+
+      <div class="product-card" id="product-4">
+        <img class="product-card-img" src="images\products\All\Furniture4.png" alt="Product placeholder">
+        <div class="product-card-body">
+        </div>
+      </div>
+
+      <!-- ROW 2 -->
+      <div class="product-card" id="product-5">
+        <img class="product-card-img" src="images\products\All\Furniture5.png" alt="Product placeholder">
+        <div class="product-card-body">
+        </div>
+      </div>
+
+      <div class="product-card" id="product-6">
+        <img class="product-card-img" src="images\products\All\Furniture6.png" alt="Product placeholder">
+        <div class="product-card-body">
+        </div>
+      </div>
+
+      <div class="product-card" id="product-7">
+        <img class="product-card-img" src="images\products\All\Furniture7.png" alt="Product placeholder">
+        <div class="product-card-body">
+        </div>
+      </div>
+
+      <div class="product-card" id="product-8">
+        <img class="product-card-img" src="images\products\All\Furniture8.png" alt="Product placeholder">
+        <div class="product-card-body">
+        </div>
+      </div>
+
+      <!-- ROW 3 -->
+      <div class="product-card" id="product-9">
+        <img class="product-card-img" src="images\products\All\Furniture9.png" alt="Product placeholder">
+        <div class="product-card-body">
+        </div>
+      </div>
+
+      <div class="product-card" id="product-10">
+        <img class="product-card-img" src="images\products\All\Furniture10.png" alt="Product placeholder">
+        <div class="product-card-body">
+        </div>
+      </div>
+
+      <div class="product-card" id="product-11">
+        <img class="product-card-img" src="images\products\All\Furniture11.png" alt="Product placeholder">
+        <div class="product-card-body">
+        </div>
+      </div>
+
+      <div class="product-card" id="product-12">
+        <img class="product-card-img" src="images\products\All\Furniture12.png" alt="Product placeholder">
+        <div class="product-card-body">
+        </div>
+      </div>
+
+      <!-- ROW 4 -->
+      <div class="product-card" id="product-13">
+        <img class="product-card-img" src="images\products\All\Furniture13.png" alt="Product placeholder">
+        <div class="product-card-body">
+        </div>
+      </div>
+
+      <div class="product-card" id="product-14">
+        <img class="product-card-img" src="images\products\All\Furniture14.png" alt="Product placeholder">
+        <div class="product-card-body">
+        </div>
+      </div>
+
+      <div class="product-card" id="product-15">
+        <img class="product-card-img" src="images\products\All\Furniture15.png" alt="Product placeholder">
+        <div class="product-card-body">
+        </div>
+      </div>
+
+      <div class="product-card" id="product-16">
+        <img class="product-card-img" src="images\products\All\Furniture16.png" alt="Product placeholder">
+        <div class="product-card-body">
+        </div>
+      </div>
+
+      <!-- ROW 5 -->
+      <div class="product-card" id="product-17">
+        <img class="product-card-img" src="images\products\All\Furniture17.png" alt="Product placeholder">
+        <div class="product-card-body">
+        </div>
+      </div>
+
+      <div class="product-card" id="product-18">
+        <img class="product-card-img" src="images\products\All\Furniture18.png" alt="Product placeholder">
+        <div class="product-card-body">
+        </div>
+      </div>
+
+      <div class="product-card" id="product-19">
+        <img class="product-card-img" src="images\products\All\Furniture19.png" alt="Product placeholder">
+        <div class="product-card-body">
+        </div>
+      </div>
+
+      <div class="product-card" id="product-20">
+        <img class="product-card-img" src="images\products\All\Furniture20.png" alt="Product placeholder">
+        <div class="product-card-body">
+        </div>
+      </div>
+
+      <!-- ROW 6 -->
+      <div class="product-card" id="product-21">
+        <img class="product-card-img" src="images\products\All\Furniture21.png" alt="Product placeholder">
+        <div class="product-card-body">
+        </div>
+      </div>
+
+      <div class="product-card" id="product-22">
+        <img class="product-card-img" src="images\products\All\Furniture22.png" alt="Product placeholder">
+        <div class="product-card-body">
+        </div>
+      </div>
+
+      <div class="product-card" id="product-23">
+        <img class="product-card-img" src="images\products\All\Furniture23.png" alt="Product placeholder">
+        <div class="product-card-body">
+        </div>
+      </div>
+
+      <div class="product-card" id="product-24">
+        <img class="product-card-img" src="images\products\All\Furniture24.png" alt="Product placeholder">
+        <div class="product-card-body">
+        </div>
+      </div>
+
+    </div><!-- /.products-grid -->
+  </section>
+
+  <div class="products-bottom-nav fade-scroll" aria-label="Products pagination and categories">
+    <div class="products-pagination" role="navigation" aria-label="Product pages">
+      <button class="products-page-link active" type="button" data-page="1" aria-current="page">1</button>
+      <button class="products-page-link" type="button" data-page="2">2</button>
+    </div>
+
+    <div class="products-categories">
+      <div class="products-subnav-container font-serif">
+        <a href="#" class="subnav-item active" data-category="all">All</a>
+        <span class="subnav-sep">|</span>
+        <a href="#" class="subnav-item" data-category="chairs">Chairs</a>
+        <span class="subnav-sep">|</span>
+        <a href="#" class="subnav-item" data-category="tables">Tables</a>
+        <span class="subnav-sep">|</span>
+        <a href="#" class="subnav-item" data-category="lightings">Lightings</a>
+        <span class="subnav-sep">|</span>
+        <a href="#" class="subnav-item" data-category="decorative-hardware">Decorative Hardware</a>
+        <span class="subnav-sep">|</span>
+        <a href="#" class="subnav-item" data-category="accessories">Accessories</a>
+      </div>
+    </div>
+  </div>
+<!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <img src="images/footer.png" alt="Footer Background" class="footer-bg-img" />
+      <div class="footer-overlay">
+        <div class="footer-content">
+          <!-- LEFT: CONTACT INFO -->
+          <div class="footer-left">
+            <h3 class="footer-title font-serif">Contact Information</h3>
+            
+            <div class="footer-contact-item">
+              <div class="contact-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#dfc17b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                  <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                </svg>
+              </div>
+              <div class="contact-details">
+                <p class="phone-number font-serif">(032) 328-9453</p>
+                <p class="working-hours font-serif">Monday to Saturday</p>
+                <p class="working-hours font-serif">8:00 am to 5:00 pm</p>
+              </div>
+            </div>
+
+            <div class="footer-contact-item">
+              <div class="contact-icon">
+                <svg width="22" height="18" viewBox="0 0 24 24" fill="none" stroke="#dfc17b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <div class="contact-details">
+                <a href="mailto:sales@mscebu.com" class="email-link font-serif">sales@mscebu.com</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT: SOCIAL -->
+          <div class="footer-right">
+            <div class="get-social-btn font-serif">Get Social</div>
+            <div class="social-icons">
+              <a href="#" aria-label="Facebook" class="social-icon fb-icon">
+                <svg width="40" height="40" viewBox="0 0 40 40">
+                  <circle cx="20" cy="20" r="20" fill="#dfc17b"/>
+                  <path d="M23 20h-3v10h-4V20h-2v-3.5h2v-2.3c0-2.6 1.4-4.2 4.1-4.2h3v3.5h-1.8c-1.2 0-1.3.5-1.3 1.3V16.5h3.1L23 20z" fill="#111111"/>
+                </svg>
+              </a>
+              <a href="#" aria-label="X (Twitter)" class="social-icon x-icon">
+                <svg width="34" height="34" viewBox="0 0 24 24" fill="#dfc17b">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const navToggle = document.getElementById('navToggle');
+      const primaryNav = document.getElementById('primaryNav');
+      const closeMobileMenu = function () {
+        if (!primaryNav || !navToggle) return;
+        primaryNav.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('nav-open');
+      };
+
+      if (navToggle && primaryNav) {
+        navToggle.addEventListener('click', function () {
+          const isOpen = primaryNav.classList.toggle('is-open');
+          navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+          document.body.classList.toggle('nav-open', isOpen);
+        });
+
+        primaryNav.querySelectorAll('a').forEach(function (link) {
+          link.addEventListener('click', function () {
+            if (window.innerWidth <= 900) {
+              closeMobileMenu();
+            }
+          });
+        });
+
+        window.addEventListener('resize', function () {
+          if (window.innerWidth > 900) {
+            closeMobileMenu();
+          }
+        });
+      }
+
+      const scrollElements = document.querySelectorAll('.fade-scroll');
+      if (scrollElements.length) {
+        const observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+              } else {
+                entry.target.classList.remove('visible');
+              }
+            });
+          },
+          {
+            threshold: 0.12,
+            rootMargin: '0px 0px -30px 0px'
+          }
+        );
+
+        scrollElements.forEach(function (el) {
+          observer.observe(el);
+        });
+      }
+
+      const productImages = Array.from(document.querySelectorAll('.product-card-img'));
+      const productCards = Array.from(document.querySelectorAll('.product-card'));
+      const pageLinks = Array.from(document.querySelectorAll('.products-page-link'));
+      const categoryLinks = Array.from(document.querySelectorAll('.subnav-item[data-category]'));
+      const bottomCategoryLinks = Array.from(document.querySelectorAll('.products-bottom-nav .subnav-item[data-category]'));
+      const pagination = document.querySelector('.products-pagination');
+      const pageTitle = document.querySelector('.products-page-title');
+      const chairsCalloutBanner = document.getElementById('chairsCalloutBanner');
+      const tablesCalloutBanner = document.getElementById('tablesCalloutBanner');
+      const lightingCalloutBanner = document.getElementById('lightingCalloutBanner');
+      const decorativeCalloutBanner = document.getElementById('decorativeCalloutBanner');
+      const accessoriesCalloutBanner = document.getElementById('accessoriesCalloutBanner');
+
+      const page1Images = Array.from({ length: 24 }, function (_, i) {
+        return 'images/products/All/Furniture' + (i + 1) + '.png';
+      });
+
+      /* 16 chair product images (Chair1–16) for the Chairs category */
+      const chairImages = Array.from({ length: 16 }, function (_, i) {
+        return 'images/products/Chairs/Chair' + (i + 1) + '.png';
+      });
+
+      /* 16 table product images (Table1–16) for the Tables category */
+      const tableImages = Array.from({ length: 16 }, function (_, i) {
+        return 'images/products/Tables/Table' + (i + 1) + '.png';
+      });
+
+      /* 12 lighting product images (Lighting1–12) for the Lightings category */
+      const lightingImages = Array.from({ length: 12 }, function (_, i) {
+        return 'images/products/Lighting/Lighting' + (i + 1) + '.png';
+      });
+
+      /* 12 decorative hardware product images (DecorativeHardware1–12) */
+      const decorativeImages = Array.from({ length: 12 }, function (_, i) {
+        return 'images/products/Decorative Hardware/DecorativeHardware' + (i + 1) + '.png';
+      });
+
+      /* 16 accessories product images (Accessories1–16) */
+      const accessoriesImages = Array.from({ length: 16 }, function (_, i) {
+        return 'images/products/Accessories/Accessories' + (i + 1) + '.png';
+      });
+
+      const placeholderImage = 'data:image/svg+xml;utf8,' + encodeURIComponent(
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><rect width="400" height="400" fill="#ede8de"/><rect x="70" y="90" width="260" height="220" rx="14" fill="none" stroke="#c7b89e" stroke-width="6"/><circle cx="150" cy="170" r="28" fill="#d7cab2"/><path d="M100 270l65-70 45 40 50-55 40 85H100z" fill="#d7cab2"/><text x="200" y="342" text-anchor="middle" font-family="Georgia, serif" font-size="22" fill="#8b7d67">Placeholder</text></svg>'
+      );
+      const page2Images = Array.from({ length: 24 }, function (_, i) {
+        return 'images/products/All/Furniture' + (i + 25) + '.png';
+      });
+      const categoryLabels = {
+        all: 'ALL',
+        chairs: 'CHAIRS',
+        tables: 'TABLES',
+        lightings: 'LIGHTINGS',
+        'decorative-hardware': 'DECORATIVE HARDWARE',
+        accessories: 'ACCESSORIES'
+      };
+      let currentPage = 1;
+      let currentCategory = 'all';
+      const cardsPerRow = 4;
+      let swapTimer = null;
+
+      /* ---- Press-and-Hold Lightbox ---- */
+      const lightbox = document.createElement('div');
+      lightbox.id = 'product-lightbox';
+      lightbox.setAttribute('aria-modal', 'true');
+      lightbox.setAttribute('role', 'dialog');
+      lightbox.setAttribute('aria-label', 'Product image enlarged view');
+      lightbox.innerHTML = '<div id="product-lightbox-inner"><img id="product-lightbox-img" src="" alt="Enlarged product view"><button id="product-lightbox-close" aria-label="Close enlarged view">&#10005;</button></div>';
+      document.body.appendChild(lightbox);
+
+      const lbStyle = document.createElement('style');
+      lbStyle.textContent = `
+        #product-lightbox {
+          display: none;
+          position: fixed;
+          inset: 0;
+          background: rgba(20,15,8,0.82);
+          z-index: 9000;
+          align-items: center;
+          justify-content: center;
+          animation: lbFadeIn 0.22s ease;
+        }
+        #product-lightbox.is-open { display: flex; }
+        @keyframes lbFadeIn { from { opacity: 0; } to { opacity: 1; } }
+        #product-lightbox-inner {
+          position: relative;
+          max-width: 90vw;
+          max-height: 88vh;
+          background: #fdf8f2;
+          border-radius: 16px;
+          padding: 12px;
+          box-shadow: 0 30px 80px rgba(0,0,0,0.55);
+          animation: lbPop 0.24s cubic-bezier(0.16,1,0.3,1);
+        }
+        @keyframes lbPop { from { transform: scale(0.82); opacity:0; } to { transform: scale(1); opacity:1; } }
+        #product-lightbox-img {
+          display: block;
+          max-width: 80vw;
+          max-height: 78vh;
+          object-fit: contain;
+          border-radius: 8px;
+        }
+        #product-lightbox-close {
+          position: absolute;
+          top: -14px;
+          right: -14px;
+          width: 34px;
+          height: 34px;
+          border-radius: 50%;
+          background: #592d01;
+          color: #fff;
+          border: 2px solid #fff;
+          font-size: 14px;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          line-height: 1;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+        }
+        .product-card.lb-holding::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          border-radius: 14px;
+          background: rgba(89,45,1,0.18);
+          pointer-events: none;
+          animation: lbHoldPulse 1.8s ease forwards;
+        }
+        .product-card { position: relative; }
+        @keyframes lbHoldPulse {
+          0% { opacity: 0; }
+          60% { opacity: 1; }
+          100% { opacity: 0.6; }
+        }
+      `;
+      document.head.appendChild(lbStyle);
+
+      const lbImg = document.getElementById('product-lightbox-img');
+      const lbClose = document.getElementById('product-lightbox-close');
+
+      function openLightbox(src, alt) {
+        lbImg.src = src;
+        lbImg.alt = alt || 'Enlarged product view';
+        lightbox.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeLightbox() {
+        lightbox.classList.remove('is-open');
+        document.body.style.overflow = '';
+        lbImg.src = '';
+      }
+
+      lbClose.addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', function (e) {
+        if (e.target === lightbox) closeLightbox();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeLightbox();
+      });
+
+      function attachHoldInteraction(card) {
+        const img = card.querySelector('.product-card-img');
+        let holdTimer = null;
+        const HOLD_MS = 600;
+
+        function startHold(e) {
+          if (holdTimer) return;
+          card.classList.add('lb-holding');
+          holdTimer = window.setTimeout(function () {
+            holdTimer = null;
+            card.classList.remove('lb-holding');
+            if (img && img.src && !img.src.includes('data:image')) {
+              openLightbox(img.src, img.alt);
+            }
+          }, HOLD_MS);
+        }
+        function cancelHold() {
+          if (holdTimer) {
+            window.clearTimeout(holdTimer);
+            holdTimer = null;
+          }
+          card.classList.remove('lb-holding');
+        }
+
+        card.addEventListener('mousedown', startHold);
+        card.addEventListener('touchstart', startHold, { passive: true });
+        card.addEventListener('mouseup', cancelHold);
+        card.addEventListener('mouseleave', cancelHold);
+        card.addEventListener('touchend', cancelHold);
+        card.addEventListener('touchcancel', cancelHold);
+        card.addEventListener('contextmenu', function (e) { e.preventDefault(); });
+      }
+
+      productCards.forEach(function (card) { attachHoldInteraction(card); });
+      /* ---- End Press-and-Hold Lightbox ---- */
+
+      function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      function applyImages(imagesForPage, isPlaceholder) {
+        productImages.forEach(function (img, index) {
+          img.src = imagesForPage[index];
+          img.alt = isPlaceholder ? 'Product placeholder image' : 'Product image ' + (index + 1);
+        });
+      }
+
+      /* Show or hide cards based on a count limit */
+      function setVisibleCards(count) {
+        productCards.forEach(function (card, i) {
+          card.style.display = i < count ? '' : 'none';
+        });
+      }
+
+      function transitionGrid(updateFn) {
+        const grid = document.querySelector('.products-grid');
+        if (swapTimer) {
+          window.clearTimeout(swapTimer);
+        }
+
+        grid.classList.add('is-switching');
+        swapTimer = window.setTimeout(function () {
+          updateFn();
+          grid.classList.remove('is-switching');
+          swapTimer = null;
+        }, 220);
+      }
+
+      function setPage(pageNumber, animate) {
+        if (typeof animate === 'undefined') {
+          animate = true;
+        }
+
+        currentPage = pageNumber;
+        if (currentCategory !== 'all') {
+          return;
+        }
+
+        const imagesForPage = pageNumber === 1 ? page1Images : page2Images;
+        pageLinks.forEach(function (link) {
+          const isActive = Number(link.dataset.page) === pageNumber;
+          link.classList.toggle('active', isActive);
+          if (isActive) {
+            link.setAttribute('aria-current', 'page');
+          } else {
+            link.removeAttribute('aria-current');
+          }
+        });
+
+        if (animate) {
+          transitionGrid(function () {
+            applyImages(imagesForPage, pageNumber !== 1);
+          });
+        } else {
+          applyImages(imagesForPage, pageNumber !== 1);
+        }
+      }
+
+      function setCategory(category, animate) {
+        if (typeof animate === 'undefined') {
+          animate = true;
+        }
+
+        currentCategory = category;
+        pageTitle.textContent = 'PRODUCTS | ' + categoryLabels[category];
+
+        categoryLinks.forEach(function (link) {
+          const isActive = link.dataset.category === category;
+          link.classList.toggle('active', isActive);
+        });
+
+        /* Helper: hide all callout banners */
+        function hideAllCallouts() {
+          chairsCalloutBanner.classList.remove('is-visible');
+          chairsCalloutBanner.setAttribute('aria-hidden', 'true');
+          tablesCalloutBanner.classList.remove('is-visible');
+          tablesCalloutBanner.setAttribute('aria-hidden', 'true');
+          lightingCalloutBanner.classList.remove('is-visible');
+          lightingCalloutBanner.setAttribute('aria-hidden', 'true');
+          decorativeCalloutBanner.classList.remove('is-visible');
+          decorativeCalloutBanner.setAttribute('aria-hidden', 'true');
+          accessoriesCalloutBanner.classList.remove('is-visible');
+          accessoriesCalloutBanner.setAttribute('aria-hidden', 'true');
+        }
+
+        if (category === 'all') {
+          hideAllCallouts();
+          setVisibleCards(24);
+          pagination.classList.remove('is-hidden');
+          setPage(currentPage, animate);
+
+        } else if (category === 'chairs') {
+          /* Chairs: left/right callout + 4×4 = 16 cards (Furniture1–16) */
+          hideAllCallouts();
+          chairsCalloutBanner.classList.add('is-visible');
+          chairsCalloutBanner.setAttribute('aria-hidden', 'false');
+          pagination.classList.add('is-hidden');
+
+          if (animate) {
+            transitionGrid(function () {
+              setVisibleCards(16);
+              productImages.slice(0, 16).forEach(function (img, i) {
+                img.src = chairImages[i];
+                img.alt = 'Chair product ' + (i + 1);
+              });
+            });
+          } else {
+            setVisibleCards(16);
+            productImages.slice(0, 16).forEach(function (img, i) {
+              img.src = chairImages[i];
+              img.alt = 'Chair product ' + (i + 1);
+            });
+          }
+
+        } else if (category === 'tables') {
+          /* Tables: top/bottom callout + 4×4 = 16 cards (Furniture17–32) */
+          hideAllCallouts();
+          tablesCalloutBanner.classList.add('is-visible');
+          tablesCalloutBanner.setAttribute('aria-hidden', 'false');
+          pagination.classList.add('is-hidden');
+
+          if (animate) {
+            transitionGrid(function () {
+              setVisibleCards(16);
+              productImages.slice(0, 16).forEach(function (img, i) {
+                img.src = tableImages[i];
+                img.alt = 'Table product ' + (i + 1);
+              });
+            });
+          } else {
+            setVisibleCards(16);
+            productImages.slice(0, 16).forEach(function (img, i) {
+              img.src = tableImages[i];
+              img.alt = 'Table product ' + (i + 1);
+            });
+          }
+
+        } else if (category === 'lightings') {
+          /* Lightings: top/bottom callout + 4×4 = 12 cards */
+          hideAllCallouts();
+          lightingCalloutBanner.classList.add('is-visible');
+          lightingCalloutBanner.setAttribute('aria-hidden', 'false');
+          pagination.classList.add('is-hidden');
+
+          if (animate) {
+            transitionGrid(function () {
+              setVisibleCards(12);
+              productImages.slice(0, 12).forEach(function (img, i) {
+                img.src = lightingImages[i];
+                img.alt = 'Lighting product ' + (i + 1);
+              });
+            });
+          } else {
+            setVisibleCards(12);
+            productImages.slice(0, 12).forEach(function (img, i) {
+              img.src = lightingImages[i];
+              img.alt = 'Lighting product ' + (i + 1);
+            });
+          }
+
+        } else if (category === 'decorative-hardware') {
+          /* Decorative Hardware: single callout + 4×4 = 12 cards */
+          hideAllCallouts();
+          decorativeCalloutBanner.classList.add('is-visible');
+          decorativeCalloutBanner.setAttribute('aria-hidden', 'false');
+          pagination.classList.add('is-hidden');
+
+          if (animate) {
+            transitionGrid(function () {
+              setVisibleCards(12);
+              productImages.slice(0, 12).forEach(function (img, i) {
+                img.src = decorativeImages[i];
+                img.alt = 'Decorative hardware product ' + (i + 1);
+              });
+            });
+          } else {
+            setVisibleCards(12);
+            productImages.slice(0, 12).forEach(function (img, i) {
+              img.src = decorativeImages[i];
+              img.alt = 'Decorative hardware product ' + (i + 1);
+            });
+          }
+
+        } else if (category === 'accessories') {
+          /* Accessories: callout + 4x4 = 16 cards */
+          hideAllCallouts();
+          accessoriesCalloutBanner.classList.add('is-visible');
+          accessoriesCalloutBanner.setAttribute('aria-hidden', 'false');
+          pagination.classList.add('is-hidden');
+
+          if (animate) {
+            transitionGrid(function () {
+              setVisibleCards(16);
+              productImages.slice(0, 16).forEach(function (img, i) {
+                img.src = accessoriesImages[i];
+                img.alt = 'Accessory product ' + (i + 1);
+              });
+            });
+          } else {
+            setVisibleCards(16);
+            productImages.slice(0, 16).forEach(function (img, i) {
+              img.src = accessoriesImages[i];
+              img.alt = 'Accessory product ' + (i + 1);
+            });
+          }
+
+        } else {
+          /* All other categories: hide callouts, restore 24 cards with placeholders */
+          hideAllCallouts();
+          setVisibleCards(24);
+          pagination.classList.add('is-hidden');
+
+          if (animate) {
+            transitionGrid(function () {
+              applyImages(page2Images, true);
+            });
+          } else {
+            applyImages(page2Images, true);
+          }
+        }
+      }
+
+      pageLinks.forEach(function (link) {
+        link.addEventListener('click', function () {
+          setPage(Number(link.dataset.page));
+          scrollToTop();
+        });
+      });
+
+      categoryLinks.forEach(function (link) {
+        link.addEventListener('click', function (event) {
+          event.preventDefault();
+          setCategory(link.dataset.category);
+        });
+      });
+
+      productCards.forEach(function (card, index) {
+        card.classList.add('row-fade');
+        card.style.setProperty('--card-col', String(index % cardsPerRow));
+      });
+
+      const rowObserver = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            const rowIndex = Number(entry.target.dataset.rowIndex);
+            const rowStart = rowIndex * cardsPerRow;
+            const rowCards = productCards.slice(rowStart, rowStart + cardsPerRow);
+            rowCards.forEach(function (card) {
+              card.classList.toggle('row-visible', entry.isIntersecting);
+            });
+          });
+        },
+        {
+          threshold: 0.22,
+          rootMargin: '0px 0px -50px 0px'
+        }
+      );
+
+      for (let i = 0; i < productCards.length; i += cardsPerRow) {
+        const rowIndex = i / cardsPerRow;
+        productCards[i].dataset.rowIndex = String(rowIndex);
+        rowObserver.observe(productCards[i]);
+      }
+
+      const initialCategory = new URLSearchParams(window.location.search).get('category');
+      if (initialCategory && categoryLabels[initialCategory]) {
+        setCategory(initialCategory, false);
+      } else {
+        setCategory('all', false);
+      }
+    });
+  </script>
 
 </body>
 
 </html>
+
