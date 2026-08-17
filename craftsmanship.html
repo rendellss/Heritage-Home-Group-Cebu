@@ -15,7 +15,7 @@
 
   <!-- Floating Request a Quote button (fixed top-right) -->
   <a href="https://docs.google.com/forms/d/e/1FAIpQLSfufqfSQ6mooIYYezE8b4IYlAZHbgLQedjskwim0REkfBtYwA/viewform"
-     target="_blank" rel="noopener noreferrer" class="hero-white-btn">Request a Quote</a>
+    target="_blank" rel="noopener noreferrer" class="hero-white-btn">Request a Quote</a>
 
   <!-- NAVBAR WITH MEGA DROPDOWN -->
   <nav class="navbar">
@@ -26,7 +26,8 @@
         Heritage Home Group
       </a>
     </h1>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primaryNav">
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false"
+      aria-controls="primaryNav">
       <span></span>
       <span></span>
       <span></span>
@@ -38,7 +39,8 @@
 
       <!-- PRODUCTS WITH DROPDOWN -->
       <li class="nav-item-dropdown">
-        <a href="products.html" class="dropdown-toggle" id="productsDropdownBtn">Products <span class="dropdown-arrow">▾</span></a>
+        <a href="products.html" class="dropdown-toggle" id="productsDropdownBtn">Products <span
+            class="dropdown-arrow">▾</span></a>
         <div class="mega-dropdown simple-dropdown" id="productsMegaDropdown">
           <div class="mega-tabs-header">
             <a href="products.html" class="mega-tab active">PRODUCTS</a>
@@ -217,15 +219,16 @@
         <!-- Fabrication photos -->
         <div class="mfg-photos-row">
           <img src="images/Fabrication &amp; Upholstery 1.png" alt="Fabrication welding" class="mfg-proc-img" />
-          <img src="images/Fabrication &amp; Upholestery 2.png" alt="Fabrication shaping" class="mfg-proc-img" />
-          <img src="images/Fabrication &amp; Upholestery 3.png" alt="Fabrication finishing" class="mfg-proc-img" />
+          <img src="images/Fabrication &amp; Upholstery 2.png" alt="Fabrication shaping" class="mfg-proc-img" />
+          <img src="images/Fabrication &amp; Upholstery 3.png" alt="Fabrication finishing" class="mfg-proc-img" />
         </div>
         <p class="mfg-desc"><span>Intricate components are carefully formed, refined, and hand-finished to achieve
             exceptional quality and craftsmanship.</span></p>
         <!-- Upholstery photos — reusing fabrication images 2 & 3 cropped differently as upholstery detail shots -->
         <div class="mfg-photos-row mfg-upholstery-row">
-          <img src="images/Fabrication &amp; Upholestery 2.png" alt="Upholstery stitching" class="mfg-proc-img" />
-          <img src="images/Chair Leather.png" alt="Leather seat detail" class="mfg-proc-img mfg-proc-img-wide" />
+          <img src="images/Fabrication &amp; Upholstery 4.png" alt="Upholstery stitching" class="mfg-proc-img" />
+          <img src="images/Fabrication &amp; Upholstery 5.png" alt="Fabrication"
+            class="mfg-proc-img mfg-proc-img-wide" />
         </div>
         <p class="mfg-desc"><span>Expertly upholstered using premium fabrics and precise tailoring, each piece is
             crafted for lasting comfort and sophistication.</span></p>
@@ -446,7 +449,8 @@
       <!-- Description only (no swatches for lamp shades) -->
       <div class="shell-bottom-container">
         <p class="mfg-desc shell-desc">
-          <span>Expertly hand-sewn using premium materials, each lampshade reflects refined craftsmanship and timeless elegance.</span>
+          <span>Expertly hand-sewn using premium materials, each lampshade reflects refined craftsmanship and timeless
+            elegance.</span>
         </p>
       </div>
 
@@ -462,13 +466,15 @@
 
       <!-- Showcase Frame Image — the hardware grid image -->
       <div class="shell-showcase-wrapper">
-        <img src="images/Decorative Hardwares.png" alt="Decorative Hardware Collection Grid" class="shell-showcase-img" />
+        <img src="images/Decorative Hardwares.png" alt="Decorative Hardware Collection Grid"
+          class="shell-showcase-img" />
       </div>
 
       <!-- Description + Process + Swatch Photos -->
       <div class="shell-bottom-container">
         <p class="mfg-desc shell-desc">
-          <span>Beautifully <u><b>crafted hardware</b></u> that adds <u><b>distinctive character</b></u>, <u><b>durability</b></u>, and <u><b>refined finishing touches</b></u>.</span>
+          <span>Beautifully <u><b>crafted hardware</b></u> that adds <u><b>distinctive character</b></u>,
+            <u><b>durability</b></u>, and <u><b>refined finishing touches</b></u>.</span>
         </p>
 
         <div class="shell-swatches-wrapper">
@@ -476,7 +482,8 @@
           <div class="shell-swatches-row deco-hw-row">
             <img src="images/Decorative Hardwares 1.png" alt="Hardware crafting process 1" class="mfg-proc-img" />
             <img src="images/Decorative Hardwares 2.png" alt="Hardware crafting process 2" class="mfg-proc-img" />
-            <img src="images/Decorative Hardwares 3.png" alt="Hardware samples" class="mfg-proc-img mfg-proc-img-wide deco-hw-wide" />
+            <img src="images/Decorative Hardwares 3.png" alt="Hardware samples"
+              class="mfg-proc-img mfg-proc-img-wide deco-hw-wide" />
           </div>
         </div>
 
@@ -553,64 +560,64 @@
       </div>
     </footer>
 
-  <!-- FADE IN / FADE OUT ON SCROLL SCRIPT -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const navToggle = document.getElementById('navToggle');
-      const primaryNav = document.getElementById('primaryNav');
-      const closeMobileMenu = () => {
-        if (!primaryNav || !navToggle) return;
-        primaryNav.classList.remove('is-open');
-        navToggle.setAttribute('aria-expanded', 'false');
-        document.body.classList.remove('nav-open');
-      };
+    <!-- FADE IN / FADE OUT ON SCROLL SCRIPT -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const navToggle = document.getElementById('navToggle');
+        const primaryNav = document.getElementById('primaryNav');
+        const closeMobileMenu = () => {
+          if (!primaryNav || !navToggle) return;
+          primaryNav.classList.remove('is-open');
+          navToggle.setAttribute('aria-expanded', 'false');
+          document.body.classList.remove('nav-open');
+        };
 
-      if (navToggle && primaryNav) {
-        navToggle.addEventListener('click', () => {
-          const isOpen = primaryNav.classList.toggle('is-open');
-          navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-          document.body.classList.toggle('nav-open', isOpen);
-        });
+        if (navToggle && primaryNav) {
+          navToggle.addEventListener('click', () => {
+            const isOpen = primaryNav.classList.toggle('is-open');
+            navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            document.body.classList.toggle('nav-open', isOpen);
+          });
 
-        primaryNav.querySelectorAll('a').forEach((link) => {
-          link.addEventListener('click', () => {
-            if (window.innerWidth <= 900) {
+          primaryNav.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', () => {
+              if (window.innerWidth <= 900) {
+                closeMobileMenu();
+              }
+            });
+          });
+
+          window.addEventListener('resize', () => {
+            if (window.innerWidth > 900) {
               closeMobileMenu();
             }
           });
-        });
-
-        window.addEventListener('resize', () => {
-          if (window.innerWidth > 900) {
-            closeMobileMenu();
-          }
-        });
-      }
-
-      const scrollElements = document.querySelectorAll('.fade-scroll');
-      if (!scrollElements.length) return;
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-            } else {
-              entry.target.classList.remove('visible');
-            }
-          });
-        },
-        {
-          threshold: 0.1,
-          rootMargin: '0px 0px -30px 0px'
         }
-      );
 
-      scrollElements.forEach((el) => {
-        observer.observe(el);
+        const scrollElements = document.querySelectorAll('.fade-scroll');
+        if (!scrollElements.length) return;
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+              } else {
+                entry.target.classList.remove('visible');
+              }
+            });
+          },
+          {
+            threshold: 0.1,
+            rootMargin: '0px 0px -30px 0px'
+          }
+        );
+
+        scrollElements.forEach((el) => {
+          observer.observe(el);
+        });
       });
-    });
-  </script>
+    </script>
 
 </body>
 
