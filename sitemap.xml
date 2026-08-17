@@ -1,0 +1,34 @@
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <url>
+        <loc>https://rendellss.github.io/Heritage-Home-Group-Cebu/</loc>
+    </url>
+
+    <url>
+        <loc>https://rendellss.github.io/Heritage-Home-Group-Cebu/about.html</loc>
+    </url>
+
+    <url>
+        <loc>https://rendellss.github.io/Heritage-Home-Group-Cebu/contact.html</loc>
+    </url>
+
+    <url>
+        <loc>https://rendellss.github.io/Heritage-Home-Group-Cebu/craftsmanship.html</loc>
+    </url>
+
+    <url>
+        <loc>https://rendellss.github.io/Heritage-Home-Group-Cebu/features.html</loc>
+    </url>
+
+    <url>
+        <loc>https://rendellss.github.io/Heritage-Home-Group-Cebu/font.html</loc>
+    </url>
+
+    <url>
+        <loc>https://rendellss.github.io/Heritage-Home-Group-Cebu/products.html</loc>
+    </url>
+
+</urlset>
+```
